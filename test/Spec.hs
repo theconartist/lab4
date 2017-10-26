@@ -1,0 +1,27 @@
+--------------------------------------------------------------------------------
+-- Functional Programming (CS256)                                             --
+-- Lab 4: Custom types                                                        --
+--------------------------------------------------------------------------------
+
+{-# LANGUAGE ScopedTypeVariables #-}
+
+import Test.Hspec
+import Test.Hspec.QuickCheck
+import Test.QuickCheck
+
+import Data.List (nub)
+
+import qualified Lab4 as L
+
+--------------------------------------------------------------------------------
+
+-- | The main entry point to the test suite.
+main :: IO ()
+main = hspec $ do
+    describe "Red-black trees" $ do
+        prop "The depth of the tree is at most 2*floor(log2(n+1))" $
+            \(xs :: [Int]) -> L.depth (foldl L.insert L.empty xs)
+                <= 2*floor (logBase 2 (fromIntegral $ length (nub xs)+1))
+
+
+--------------------------------------------------------------------------------
