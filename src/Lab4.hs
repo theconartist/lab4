@@ -31,7 +31,7 @@ depth = undefined
 toList :: Tree a -> [a]
 toList = undefined
 
-member :: Eq a => a -> Tree a -> Bool
+member :: Ord a => a -> Tree a -> Bool
 member = undefined
 
 balance :: Colour -> Tree a -> a -> Tree a -> Tree a
