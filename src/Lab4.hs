@@ -28,6 +28,9 @@ makeBlack = undefined
 depth :: Tree a -> Int
 depth = undefined
 
+toList :: Tree a -> [a]
+toList = undefined
+
 member :: Eq a => a -> Tree a -> Bool
 member = undefined
 
