@@ -24,7 +24,7 @@ main = hspec $ do
                 <= 2*floor (logBase 2 (fromIntegral $ length (nub xs)+1))
         prop "toList returns a sorted list" $
             \(xs :: [Int]) -> L.toList (foldl L.insert L.empty xs)
-                == sort xs
+                == sort (nub xs)
 
 
 --------------------------------------------------------------------------------
