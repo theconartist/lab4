@@ -1,2 +1,1 @@
-# lab4
-Custom types
+# Lab 4: User-defined types

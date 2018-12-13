@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
--- Functional Programming (CS256)                                             --
--- Lab 4: Custom types                                                        --
+-- Functional Programming (CS141)                                             --
+-- Lab 4: User-defined types                                                  --
 --------------------------------------------------------------------------------
 
 module Lab4 where
