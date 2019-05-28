@@ -8,31 +8,34 @@ module Lab4 where
 --------------------------------------------------------------------------------
 -- Red-black trees
 
-data Colour = ???
+data Colour = Red | Black
 
 instance Show Colour where
-    show = undefined
+    show Red = "Red"
+    show Black = "Black"
 
-data Tree a = Leaf | ???
+data Tree a = Leaf | Node Colour (Tree a) a (Tree a)
     deriving Show
 
 empty :: Tree a
-empty = undefined
+empty = Leaf
 
 singleton :: a -> Tree a
-singleton = undefined
+singleton x = Node Red Leaf x Leaf
 
 makeBlack :: Tree a -> Tree a
-makeBlack = undefined
+makeBlack (Node c l x r) = Node Black l x r
 
 depth :: Tree a -> Int
-depth = undefined
+depth Leaf = 0
+depth (Node c l x r) = max (depth l) (depth r) + 1
 
 toList :: Tree a -> [a]
-toList = undefined
+toList Leaf = []
+toList (Node c l x r) = toList l ++ [x] ++ toList r
 
 member :: Ord a => a -> Tree a -> Bool
-member = undefined
+member x t = x `elem` toList t
 
 balance :: Colour -> Tree a -> a -> Tree a -> Tree a
 balance Black (Node Red (Node Red a x b) y c) z d =
